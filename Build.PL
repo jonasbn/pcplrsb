@@ -19,6 +19,7 @@ my $build = Module::Build->new(
         'Readonly'            => '0',
         'Test::More'          => '0',
         'Test::Perl::Critic'  => '0',
+        'List::MoreUtils'     => '0',
     },
     meta_merge => {
         resources => {
