@@ -1,4 +1,4 @@
-# Build.PL for Perl::Critic::JONASBN
+# Build.PL for Perl::Critic::Policy::logicLAB::RequireSheBang
 
 # $Id$
 
