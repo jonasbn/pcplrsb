@@ -31,7 +31,7 @@ sub violates {
     my ($shebang, $cli) = $elem =~ m{
             \A  #beginning of string
             (\#!) #actual she-bang
-            ([\w/ ]+)
+            ([\w/ ]+) #the path
             \Z  #end of string
     }xsm;
     
@@ -76,71 +76,102 @@ __END__
 
 =head1 NAME
 
-<package name> - <package abstract>
+Perl::Critic::Policy::logicLAB::RequireSheBang - <package abstract>
 
-=head1 SYNOPSIS
+=head1 AFFILIATION 
+
+This policy is a policy in the Perl::Critic::logicLAB distribution.
 
 =head1 VERSION
 
+This documentation describes version 0.01
+
 =head1 DESCRIPTION
-
-=head1 SUBROUTINES/METHODS
-
-=head2 applies_to
-=head2 default_severity
-=head2 default_themes
-=head2 supported_parameters
-=head2 violates
-
-=head1 DIAGNOSTICS
-
-=over
-
-=item * 
-
-=back
 
 =head1 CONFIGURATION AND ENVIRONMENT
 
-=head1 DEPENDENCIES
+This policy allow you to configure the contents of the shebang lines you want to allow.
+
+	[logicLAB::RequireSheBang]
+	formats = #!/usr/local/bin/perl || #!/usr/bin/perl || #!perl || #!env perl
+
+The default is:
+
+	#!/usr/local/bin/perl
+	
+Please note that if you however what to extend the pattern, you also have to specify was is normally the default pattern
+since configuration overwrites the default even for extension.
+
+=head1 DEPENDENCIES AND REQUIREMENTS
 
 =over
 
-=item * L<Perl::Critic::Policy>
+=item * L<Perl::Critic>
 
 =item * L<Perl::Critic::Utils>
+
+=item * L<Readonly>
+
+=item * L<Test::More>
+
+=item * L<Test::Perl::Critic>
+
+=item * L<List::MoreUtils>
 
 =back
 
 =head1 INCOMPATIBILITIES
 
+This distribution has no known incompatibilities.
+
 =head1 BUGS AND LIMITATIONS
+
+The distribution has now known bugs or limitations. It locates shebang lines through out the source code, not limiting itself to the first line. This might however change in the future, but will propably be made configurable is possible.
+
+=head1 BUG REPORTING
+
+Please use Requets Tracker for bug reporting:
+
+    http://rt.cpan.org/NoAuth/Bugs.html?Dist=Perl-Critic-logicLAB-RequireSheBang
 
 =head1 TEST AND QUALITY
 
-=head1 TODO
+The following policies have been disabled for this distribution
 
 =over
 
-=item *
+=item * L<Perl::Crititc::Policy::ValuesAndExpressions::ProhibitConstantPragma>
+
+=item * L<Perl::Crititc::Policy::NamingConventions::Capitalization>
 
 =back
 
+See also F<t/perlcriticrc>
+
+=head2 TEST COVERAGE
+    
 =head1 SEE ALSO
 
 =over
 
-=item * L<Perl::Critic::Policy>
+=item * L<http://perldoc.perl.org/perlrun.html>
 
-=item * L<Perl::Critic::Utils>
+=item * L<http://logiclab.jira.com/wiki/display/OPEN/Development#Development-MakeyourComponentsEnvironmentAgnostic>
 
 =back
 
 =head1 AUTHOR
 
-=head1 COPYRIGHT
+=over
 
-=head1 LICENSE
+=item * Jonas B. Nielsen, jonasbn C<< <jonasbn@cpan.org> >>
+
+=back
+
+=head1 LICENSE AND COPYRIGHT
+
+Copyright (c) 2011 Jonas B. Nielsen. All rights reserved.
+
+This program is free software; you can redistribute it and/or modify it under the same terms as Perl itself.
 
 =cut
-
