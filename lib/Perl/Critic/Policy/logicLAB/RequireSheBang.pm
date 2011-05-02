@@ -77,7 +77,7 @@ __END__
 
 =head1 NAME
 
-Perl::Critic::Policy::logicLAB::RequireSheBang - <package abstract>
+Perl::Critic::Policy::logicLAB::RequireSheBang - simple policy for keeping your shebang line uniform
 
 =head1 AFFILIATION 
 
@@ -85,13 +85,14 @@ This policy is a policy in the Perl::Critic::logicLAB distribution.
 
 =head1 VERSION
 
-This documentation describes version 0.01
+This documentation describes version 0.01.
 
 =head1 DESCRIPTION
 
 =head1 CONFIGURATION AND ENVIRONMENT
 
-This policy allow you to configure the contents of the shebang lines you want to allow.
+This policy allow you to configure the contents of the shebang lines you 
+want to allow.
 
     [logicLAB::RequireSheBang]
     formats = #!/usr/local/bin/perl || #!/usr/bin/perl || #!perl || #!env perl
@@ -100,8 +101,9 @@ The default is:
 
     #!/usr/local/bin/perl
     
-Please note that if you however what to extend the pattern, you also have to specify was is normally the default pattern
-since configuration overwrites the default even for extension.
+Please note that if you however what to extend the pattern, you also have 
+to specify was is normally the default pattern since configuration 
+overwrites the default even for extension.
 
 =head1 DEPENDENCIES AND REQUIREMENTS
 
@@ -127,7 +129,9 @@ This distribution has no known incompatibilities.
 
 =head1 BUGS AND LIMITATIONS
 
-The distribution has now known bugs or limitations. It locates shebang lines through out the source code, not limiting itself to the first line. This might however change in the future, but will propably be made configurable is possible.
+The distribution has now known bugs or limitations. It locates shebang lines 
+through out the source code, not limiting itself to the first line. This might 
+however change in the future, but will propably be made configurable is possible.
 
 =head1 BUG REPORTING
 
@@ -184,6 +188,7 @@ See also F<t/perlcriticrc>
 
 Copyright (c) 2011 Jonas B. Nielsen. All rights reserved.
 
-This program is free software; you can redistribute it and/or modify it under the same terms as Perl itself.
+This program is free software; you can redistribute it and/or modify it under the 
+same terms as Perl itself.
 
 =cut
