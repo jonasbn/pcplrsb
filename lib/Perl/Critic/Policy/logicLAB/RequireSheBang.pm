@@ -12,7 +12,6 @@ our $VERSION = '0.01';
 
 Readonly::Scalar my $EXPL => q{she-bang line should adhere to requirement};
 
-use constant supported_parameters => ();
 use constant default_severity     => $SEVERITY_MEDIUM;
 use constant default_themes       => qw(maintenance);
 use constant supported_parameters => qw(formats);
