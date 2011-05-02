@@ -51,7 +51,7 @@ $critic = Perl::Critic->new(
     '-single-policy' => 'logicLAB::RequireSheBang'
 );
 {
-    my $str = q[#!perl];
+    my $str = q[#!/usr/local/bin/perl];
     
     my @violations = $critic->critique( \$str );
     
@@ -97,6 +97,6 @@ exit 0;
 
 __DATA__
 1	#!env perl
-1	#!/usr/local/bin/perl
+0	#!/usr/local/bin/perl
 1	#!/usr/bin/perl
-0	#!perl
+1	#!perl
