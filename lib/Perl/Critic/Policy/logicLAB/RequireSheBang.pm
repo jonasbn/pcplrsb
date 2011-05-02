@@ -47,7 +47,7 @@ sub initialize_if_enabled {
     my ( $self, $config ) = @_;
 
     #Setting the default
-    $self->{_formats} = [('#!perl')];
+    $self->{_formats} = [('#!/usr/local/bin/perl')];
 
 	#fetching configured formats
     my $formats = $config->get('formats');
