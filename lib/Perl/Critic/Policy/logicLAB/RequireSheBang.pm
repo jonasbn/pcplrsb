@@ -93,13 +93,13 @@ This documentation describes version 0.01
 
 This policy allow you to configure the contents of the shebang lines you want to allow.
 
-	[logicLAB::RequireSheBang]
-	formats = #!/usr/local/bin/perl || #!/usr/bin/perl || #!perl || #!env perl
+    [logicLAB::RequireSheBang]
+    formats = #!/usr/local/bin/perl || #!/usr/bin/perl || #!perl || #!env perl
 
 The default is:
 
-	#!/usr/local/bin/perl
-	
+    #!/usr/local/bin/perl
+    
 Please note that if you however what to extend the pattern, you also have to specify was is normally the default pattern
 since configuration overwrites the default even for extension.
 
@@ -151,16 +151,16 @@ See also F<t/perlcriticrc>
 
 =head2 TEST COVERAGE
 
-	---------------------------- ------ ------ ------ ------ ------ ------ ------
-	File                           stmt   bran   cond    sub    pod   time  total
-	---------------------------- ------ ------ ------ ------ ------ ------ ------
-	...ogicLAB/RequireSheBang.pm  100.0  100.0   66.7  100.0  100.0    0.0   98.4
-	t/critic.t                     88.0   25.0    0.0  100.0    n/a   25.0   76.3
-	t/implementation.t            100.0    n/a    n/a  100.0    n/a   25.0  100.0
-	t/prerequisites.t              89.5   50.0    n/a  100.0    n/a   25.0   82.8
-	t/test.t                       94.7   25.0    n/a  100.0    n/a   25.0   90.8
-	Total                          94.8   50.0   33.3  100.0  100.0  100.0   90.1
-	---------------------------- ------ ------ ------ ------ ------ ------ ------
+    ---------------------------- ------ ------ ------ ------ ------ ------ ------
+    File                           stmt   bran   cond    sub    pod   time  total
+    ---------------------------- ------ ------ ------ ------ ------ ------ ------
+    ...ogicLAB/RequireSheBang.pm  100.0  100.0   66.7  100.0  100.0    0.0   98.4
+    t/critic.t                     88.0   25.0    0.0  100.0    n/a   25.0   76.3
+    t/implementation.t            100.0    n/a    n/a  100.0    n/a   25.0  100.0
+    t/prerequisites.t              89.5   50.0    n/a  100.0    n/a   25.0   82.8
+    t/test.t                       94.7   25.0    n/a  100.0    n/a   25.0   90.8
+    Total                          94.8   50.0   33.3  100.0  100.0  100.0   90.1
+    ---------------------------- ------ ------ ------ ------ ------ ------ ------
 
 =head1 SEE ALSO
 
