@@ -69,3 +69,78 @@ sub _parse_formats {
 }
 
 1;
+
+__END__
+
+=pod
+
+=head1 NAME
+
+<package name> - <package abstract>
+
+=head1 SYNOPSIS
+
+=head1 VERSION
+
+=head1 DESCRIPTION
+
+=head1 SUBROUTINES/METHODS
+
+=head2 applies_to
+=head2 default_severity
+=head2 default_themes
+=head2 supported_parameters
+=head2 violates
+
+=head1 DIAGNOSTICS
+
+=over
+
+=item * 
+
+=back
+
+=head1 CONFIGURATION AND ENVIRONMENT
+
+=head1 DEPENDENCIES
+
+=over
+
+=item * L<Perl::Critic::Policy>
+
+=item * L<Perl::Critic::Utils>
+
+=back
+
+=head1 INCOMPATIBILITIES
+
+=head1 BUGS AND LIMITATIONS
+
+=head1 TEST AND QUALITY
+
+=head1 TODO
+
+=over
+
+=item *
+
+=back
+
+=head1 SEE ALSO
+
+=over
+
+=item * L<Perl::Critic::Policy>
+
+=item * L<Perl::Critic::Utils>
+
+=back
+
+=head1 AUTHOR
+
+=head1 COPYRIGHT
+
+=head1 LICENSE
+
+=cut
+
