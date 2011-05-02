@@ -31,9 +31,8 @@ sub violates {
             \A  #beginning of string
             (\#!) #actual she-bang
             ([\w/ ]+) #the path
-            \Z  #end of string
     }xsm;
-    
+
     if ($shebang && none { ($shebang.$cli) eq $_ } @{ $self->{_formats} }) {
         return $self->violation( q{she-bang line not confirming with requirement},
             $EXPL, $elem );
