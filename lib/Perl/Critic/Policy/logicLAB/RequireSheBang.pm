@@ -178,15 +178,20 @@ See also F<t/perlcriticrc>
 
 =head2 TEST COVERAGE
 
+Coverage test executed the following way:
+
+    TEST_AUTHOR=1 TEST_CRITIC=1 TEST_VERBOSE=1 ./Build testcover
+
     ---------------------------- ------ ------ ------ ------ ------ ------ ------
     File                           stmt   bran   cond    sub    pod   time  total
     ---------------------------- ------ ------ ------ ------ ------ ------ ------
-    ...ogicLAB/RequireSheBang.pm  100.0  100.0   66.7  100.0  100.0    0.0   98.4
-    t/critic.t                     88.0   25.0    0.0  100.0    n/a   25.0   76.3
+    Build.PL                      100.0    n/a    n/a  100.0    n/a    0.0  100.0
+    ...ogicLAB/RequireSheBang.pm  100.0  100.0  100.0  100.0  100.0    0.0  100.0
+    t/critic.t                    100.0   75.0   33.3  100.0    n/a   25.0   92.1
     t/implementation.t            100.0    n/a    n/a  100.0    n/a   25.0  100.0
-    t/prerequisites.t              89.5   50.0    n/a  100.0    n/a   25.0   82.8
-    t/test.t                       94.7   25.0    n/a  100.0    n/a   25.0   90.8
-    Total                          94.8   50.0   33.3  100.0  100.0  100.0   90.1
+    t/prerequisites.t              94.7   83.3    n/a  100.0    n/a   25.0   93.1
+    t/test.t                       94.9   25.0    n/a  100.0    n/a   25.0   91.0
+    Total                          97.5   72.2   66.7  100.0  100.0  100.0   95.0
     ---------------------------- ------ ------ ------ ------ ------ ------ ------
 
 =head1 SEE ALSO
