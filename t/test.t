@@ -3,7 +3,7 @@
 
 use strict;
 use warnings;
-use Test::More tests => 19;
+use Test::More tests => 21;
 use Env qw($TEST_VERBOSE);
 
 use_ok 'Perl::Critic::Policy::logicLAB::RequireSheBang';
@@ -111,6 +111,7 @@ exit 0;
 
 __DATA__
 1	#!env perl
+1	#!env perl -w
 0	#!/usr/local/bin/perl
 1	#!/usr/local/bin/perl -w
 1	#!/usr/bin/perl
