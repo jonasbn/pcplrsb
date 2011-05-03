@@ -30,12 +30,10 @@ sub violates {
     my ( $shebang, $cli ) = $elem =~ m{
             \A  #beginning of string
             (\#!) #actual she-bang
-            ([\w/ ]+) #the path
+            ([/\-\w ]+) #the path and possible flags, note the space character
     }xsm;
 
-    if ( $shebang && none { ( $shebang . $cli ) eq $_ }
-        @{ $self->{_formats} } )
-    {
+    if ( $shebang && none { ($elem) eq $_ } @{ $self->{_formats} } ) {
         return $self->violation(
             q{she-bang line not confirming with requirement},
             $EXPL, $elem );
@@ -89,21 +87,46 @@ This documentation describes version 0.01.
 
 =head1 DESCRIPTION
 
+This policy is intended in guarding your use of the shebang line. It assists
+in making sure that your shebang line adheres to certain formats.
+
+The default format is
+
+    #!/usr/local/bin/perl
+    
+You can however specify another or define your own in the configuration of the
+policy.
+
 =head1 CONFIGURATION AND ENVIRONMENT
 
 This policy allow you to configure the contents of the shebang lines you 
-want to allow.
+want to allow using L</formats>.
+
+=head2 formats
 
     [logicLAB::RequireSheBang]
     formats = #!/usr/local/bin/perl || #!/usr/bin/perl || #!perl || #!env perl
 
-The default is:
+Since the default shebang line enforced by the policy is:
 
     #!/usr/local/bin/perl
     
 Please note that if you however what to extend the pattern, you also have 
 to specify was is normally the default pattern since configuration 
-overwrites the default even for extension.
+overwrites the default even for extensions.
+
+This mean that if you want to allow:
+
+    #!/usr/local/bin/perl
+
+    #!/usr/local/bin/perl -w
+    
+    #!/usr/local/bin/perl -wT
+        
+Your format should look like the following:
+
+    [logicLAB::RequireSheBang]
+    formats = #!/usr/local/bin/perl || #!/usr/local/bin/perl -w || #!/usr/local/bin/perl -wT
 
 =head1 DEPENDENCIES AND REQUIREMENTS
 
@@ -145,9 +168,9 @@ The following policies have been disabled for this distribution
 
 =over
 
-=item * L<Perl::Crititc::Policy::ValuesAndExpressions::ProhibitConstantPragma>
+=item * L<Perl::Critic::Policy::ValuesAndExpressions::ProhibitConstantPragma>
 
-=item * L<Perl::Crititc::Policy::NamingConventions::Capitalization>
+=item * L<Perl::Critic::Policy::NamingConventions::Capitalization>
 
 =back
 
@@ -155,24 +178,35 @@ See also F<t/perlcriticrc>
 
 =head2 TEST COVERAGE
 
+Coverage test executed the following way:
+
+    TEST_AUTHOR=1 TEST_CRITIC=1 TEST_VERBOSE=1 ./Build testcover
+
     ---------------------------- ------ ------ ------ ------ ------ ------ ------
     File                           stmt   bran   cond    sub    pod   time  total
     ---------------------------- ------ ------ ------ ------ ------ ------ ------
-    ...ogicLAB/RequireSheBang.pm  100.0  100.0   66.7  100.0  100.0    0.0   98.4
-    t/critic.t                     88.0   25.0    0.0  100.0    n/a   25.0   76.3
+    Build.PL                      100.0    n/a    n/a  100.0    n/a    0.0  100.0
+    ...ogicLAB/RequireSheBang.pm  100.0  100.0  100.0  100.0  100.0    0.0  100.0
+    t/critic.t                    100.0   75.0   33.3  100.0    n/a   25.0   92.1
     t/implementation.t            100.0    n/a    n/a  100.0    n/a   25.0  100.0
-    t/prerequisites.t              89.5   50.0    n/a  100.0    n/a   25.0   82.8
-    t/test.t                       94.7   25.0    n/a  100.0    n/a   25.0   90.8
-    Total                          94.8   50.0   33.3  100.0  100.0  100.0   90.1
+    t/prerequisites.t              94.7   83.3    n/a  100.0    n/a   25.0   93.1
+    t/test.t                       94.9   25.0    n/a  100.0    n/a   25.0   91.0
+    Total                          97.5   72.2   66.7  100.0  100.0  100.0   95.0
     ---------------------------- ------ ------ ------ ------ ------ ------ ------
 
 =head1 SEE ALSO
 
 =over
 
+=item * L<Perl::Critic>
+
 =item * L<http://perldoc.perl.org/perlrun.html>
 
 =item * L<http://logiclab.jira.com/wiki/display/OPEN/Development#Development-MakeyourComponentsEnvironmentAgnostic>
+
+=item * L<http://logiclab.jira.com/wiki/display/PCPLRSB/Home>
+
+=item * L<http://logiclab.jira.com/wiki/display/PCLL/Home>
 
 =back
 
