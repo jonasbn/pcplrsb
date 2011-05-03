@@ -3,7 +3,7 @@
 
 use strict;
 use warnings;
-use Test::More tests => 14;
+use Test::More tests => 19;
 use Env qw($TEST_VERBOSE);
 
 use_ok 'Perl::Critic::Policy::logicLAB::RequireSheBang';
@@ -58,17 +58,31 @@ $critic = Perl::Critic->new(
     is(scalar @violations, 0, "asserting no violations for: $str");
 }
 
-$critic = Perl::Critic->new(
-    '-profile'       => '',
-    '-single-policy' => 'logicLAB::RequireSheBang'
-);
 {
-    my @p = $critic->policies;
-    is( scalar @p, 1, 'single policy RequireSheBang' );
+my $str = <<EOS;#!/usr/local/bin/perl
 
-    my $policy = $p[0];
+use strict;
+use warnings;
+
+say "Hello World";
+EOS
+
+    my @violations = $critic->critique( \$str );
+    is(scalar @violations, 0, "asserting no violations for: $str");
 }
-print STDERR "\n";
+
+{
+my $str = <<EOS;#!/usr/bin/perl
+
+use strict;
+use warnings;
+
+say "Hello World";
+EOS
+
+    my @violations = $critic->critique( \$str );
+    is(scalar @violations, 0, "asserting violations for: $str");
+}
 
 my @lines = <DATA>;
 my $i = 1;
@@ -98,5 +112,7 @@ exit 0;
 __DATA__
 1	#!env perl
 0	#!/usr/local/bin/perl
+1	#!/usr/local/bin/perl -w
 1	#!/usr/bin/perl
+1	#!/usr/bin/perl -w
 1	#!perl

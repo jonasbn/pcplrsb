@@ -30,10 +30,10 @@ sub violates {
     my ( $shebang, $cli ) = $elem =~ m{
             \A  #beginning of string
             (\#!) #actual she-bang
-            ([\w/ ]+) #the path
+            ([/\-\w ]+) #the path and possible flags, note the space character
     }xsm;
 
-    if ( $shebang && none { ( $shebang . $cli ) eq $_ }
+    if ( $shebang && none { ( $elem ) eq $_ }
         @{ $self->{_formats} } )
     {
         return $self->violation(
