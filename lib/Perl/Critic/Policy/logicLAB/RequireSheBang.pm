@@ -222,6 +222,14 @@ Coverage test executed the following way:
 
 =back
 
+=head1 ACKNOWLEDGEMENT
+
+=over
+
+=item * Erik Johansen (uniejo), feedback to version 0.01
+
+=back 
+
 =head1 LICENSE AND COPYRIGHT
 
 Copyright (c) 2011 Jonas B. Nielsen, jonasbn. All rights reserved.
