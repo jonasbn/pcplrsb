@@ -79,7 +79,8 @@ Perl::Critic::Policy::logicLAB::RequireSheBang - simple policy for keeping your 
 
 =head1 AFFILIATION 
 
-This policy is a policy in the Perl::Critic::logicLAB distribution.
+This policy is a policy in the Perl::Critic::logicLAB distribution. The policy
+is themed: logiclab.
 
 =head1 VERSION
 
