@@ -97,6 +97,9 @@ The default format is
 You can however specify another or define your own in the configuration of the
 policy.
 
+B<NB> this policy does currently not warn about missing shebang lines, it only
+checks shebang lines encountered.
+
 =head1 CONFIGURATION AND ENVIRONMENT
 
 This policy allow you to configure the contents of the shebang lines you 
