@@ -13,7 +13,7 @@ our $VERSION = '0.02';
 Readonly::Scalar my $EXPL => q{she-bang line should adhere to requirement};
 
 use constant default_severity     => $SEVERITY_MEDIUM;
-use constant default_themes       => qw(maintenance);
+use constant default_themes       => qw(logiclab);
 use constant supported_parameters => qw(formats);
 
 sub applies_to {
