@@ -224,7 +224,7 @@ Coverage test executed the following way:
 
 =head1 LICENSE AND COPYRIGHT
 
-Copyright (c) 2011 Jonas B. Nielsen. All rights reserved.
+Copyright (c) 2011 Jonas B. Nielsen, jonasbn. All rights reserved.
 
 This program is free software; you can redistribute it and/or modify it under the 
 same terms as Perl itself.
