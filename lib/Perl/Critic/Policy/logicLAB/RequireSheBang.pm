@@ -35,7 +35,7 @@ sub violates {
 
     if ( $shebang && none { ($elem) eq $_ } @{ $self->{_formats} } ) {
         return $self->violation(
-            q{she-bang line not confirming with requirement},
+            q{she-bang line not conforming with requirement},
             $EXPL, $elem );
     }
 
