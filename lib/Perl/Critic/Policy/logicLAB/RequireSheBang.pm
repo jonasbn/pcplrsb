@@ -83,7 +83,7 @@ This policy is a policy in the Perl::Critic::logicLAB distribution.
 
 =head1 VERSION
 
-This documentation describes version 0.01.
+This documentation describes version 0.02.
 
 =head1 DESCRIPTION
 
