@@ -92,7 +92,7 @@ foreach (@lines) {
     my ($want_count, $str) = split /\t/;
     my @violations = $critic->critique( \$str );
     foreach (@violations) {
-        is( $_->description, q{she-bang line not confirming with requirement}, "statement: $str" );
+        is( $_->description, q{she-bang line not conforming with requirement}, "statement: $str" );
     }
     is( scalar @violations, $want_count, "$i: statement: $str" );
 
