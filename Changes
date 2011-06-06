@@ -6,6 +6,12 @@ Project change log:
 
 http://logiclab.jira.com/browse/PCPLRSB#selectedTab=com.atlassian.jira.plugin.system.project%3Achangelog-panel
 
+0.03, 2011.06.06, update recommended
+
+- Serious bug fix to parsing of shebang lines [PCPLRSB-6]
+  http://logiclab.jira.com/browse/PCPLRSB-6
+
+
 0.02, 2011.05.16, update recommended
 
 - Minor corrections to documentation [PCPLRSB-3]
