@@ -6,9 +6,6 @@ use warnings;
 use Test::More tests => 3;
 use Env qw($TEST_VERBOSE);
 
-use FindBin;
-use lib "$FindBin::Bin/../lib";
-
 use_ok 'Perl::Critic::Policy::logicLAB::RequireSheBang';
 
 require Perl::Critic;
