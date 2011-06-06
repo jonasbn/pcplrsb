@@ -8,7 +8,7 @@ use base 'Perl::Critic::Policy';
 use Perl::Critic::Utils qw{ $SEVERITY_MEDIUM :booleans };
 use List::MoreUtils qw(none);
 
-our $VERSION = '0.02';
+our $VERSION = '0.03';
 
 Readonly::Scalar my $EXPL => q{she-bang line should adhere to requirement};
 
