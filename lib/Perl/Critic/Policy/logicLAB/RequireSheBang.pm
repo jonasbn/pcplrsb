@@ -27,13 +27,15 @@ sub applies_to {
 sub violates {
     my ( $self, $elem ) = @_;
 
+
     my ( $shebang, $cli ) = $elem =~ m{
             \A  #beginning of string
             (\#!) #actual she-bang
             ([/\-\w ]+) #the path and possible flags, note the space character
+            (?:\Z)? #optional indication of end of line to assist above capture
     }xsm;
 
-    if ( $shebang && none { ($elem) eq $_ } @{ $self->{_formats} } ) {
+    if ( $shebang && none { ($shebang.$cli) eq $_ } @{ $self->{_formats} } ) {
         return $self->violation(
             q{she-bang line not conforming with requirement},
             $EXPL, $elem );

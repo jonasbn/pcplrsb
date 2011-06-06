@@ -3,7 +3,7 @@
 
 use strict;
 use warnings;
-use Test::More tests => 21;
+use Test::More tests => 22;
 use Env qw($TEST_VERBOSE);
 
 use_ok 'Perl::Critic::Policy::logicLAB::RequireSheBang';
@@ -59,7 +59,8 @@ $critic = Perl::Critic->new(
 }
 
 {
-my $str = <<EOS;#!/usr/local/bin/perl
+my $str = <<'EOS';
+#!/usr/local/bin/perl
 
 use strict;
 use warnings;
@@ -72,7 +73,8 @@ EOS
 }
 
 {
-my $str = <<EOS;#!/usr/bin/perl
+my $str = <<'EOS';
+#!/usr/local/bin/perl -T
 
 use strict;
 use warnings;
@@ -81,7 +83,22 @@ say "Hello World";
 EOS
 
     my @violations = $critic->critique( \$str );
-    is(scalar @violations, 0, "asserting violations for: $str");
+    is(scalar @violations, 1, "asserting no violations for: $str");
+}
+
+
+{
+my $str = <<'EOS';
+#!/usr/bin/perl
+
+use strict;
+use warnings;
+
+say "Hello World";
+EOS
+
+    my @violations = $critic->critique( \$str );
+    is(scalar @violations, 1, "asserting violations for: $str");
 }
 
 my @lines = <DATA>;
