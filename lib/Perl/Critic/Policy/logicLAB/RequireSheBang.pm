@@ -7,14 +7,18 @@ use warnings;
 use base 'Perl::Critic::Policy';
 use Perl::Critic::Utils qw{ $SEVERITY_MEDIUM :booleans };
 use List::MoreUtils qw(none);
+use Data::Dumper;
+
+$Data::Dumper::Useqq = 1;
 
 our $VERSION = '0.03';
 
 Readonly::Scalar my $EXPL => q{she-bang line should adhere to requirement};
+Readonly::Scalar my $DEBUG => q{DEBUG logicLAB::RequireSheBang};
 
 use constant default_severity     => $SEVERITY_MEDIUM;
 use constant default_themes       => qw(logiclab);
-use constant supported_parameters => qw(formats);
+use constant supported_parameters => qw(formats debug);
 
 sub applies_to {
     return (
@@ -27,15 +31,43 @@ sub applies_to {
 sub violates {
     my ( $self, $elem ) = @_;
 
+    if ($self->{debug}) {
+        print STDERR "$DEBUG: we got element:\n";
+        print STDERR Dumper $elem;
+    }
 
     my ( $shebang, $cli ) = $elem =~ m{
             \A  #beginning of string
             (\#!) #actual she-bang
-            ([/\-\w ]+) #the path and possible flags, note the space character
-            (?:\Z)? #optional indication of end of line to assist above capture
+            #([^\r\n]*?) #the path and possible flags, note the space character
+            ([/\-\w ]+?) #the path and possible flags, note the space character
+            \s* #possible left over whitespace (PPI?)
+            \Z #indication of end of string to assist above capture
     }xsm;
 
+    if ($cli) {
+        $cli =~ s/\s+$//;
+    }
+
+    if ($self->{debug} && $shebang && $cli) {
+        print STDERR "$DEBUG: we got a shebang line:\n";
+        print STDERR '>'.$shebang.$cli."<\n";
+            
+        print STDERR "$DEBUG: comparing against formats:\n";
+        print STDERR @{ $self->{_formats} };
+        print STDERR "\n";
+        
+    } elsif ($self->{debug}) {
+        print STDERR "$DEBUG: not a shebang, ignoring...\n";
+    }
+
     if ( $shebang && none { ($shebang.$cli) eq $_ } @{ $self->{_formats} } ) {
+
+        if ($self->{debug}) {
+            print STDERR "$DEBUG: we got a violation:\n";
+            print STDERR '>'.$shebang.$cli."<\n";
+        }
+        
         return $self->violation(
             q{she-bang line not conforming with requirement},
             $EXPL, $elem );
@@ -47,6 +79,8 @@ sub violates {
 sub initialize_if_enabled {
     my ( $self, $config ) = @_;
 
+
+    #Formats:
     #Setting the default
     $self->{_formats} = [ ('#!/usr/local/bin/perl') ];
 
@@ -57,6 +91,10 @@ sub initialize_if_enabled {
     if ($formats) {
         $self->{_formats} = $self->_parse_formats($formats);
     }
+    
+    #Debug
+    #Setting the default
+    $self->{debug} = $config->get('debug');
 
     return $TRUE;
 }
