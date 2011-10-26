@@ -32,8 +32,8 @@ sub violates {
     my ( $self, $elem ) = @_;
 
     if ( $self->{debug} ) {
-        print STDERR "$DEBUG: we got element:\n";
-        print STDERR Dumper $elem;
+        print {*STDERR} "$DEBUG: we got element:\n";
+        print {*STDERR} Dumper $elem;
     }
 
     my ( $shebang, $cli ) = $elem =~ m{
@@ -50,15 +50,15 @@ sub violates {
     }
 
     if ( $self->{debug} && $shebang && $cli ) {
-        print STDERR "$DEBUG: we got a shebang line:\n";
-        print STDERR '>' . $shebang . $cli . "<\n";
+        print {*STDERR} "$DEBUG: we got a shebang line:\n";
+        print {*STDERR} '>' . $shebang . $cli . "<\n";
 
-        print STDERR "$DEBUG: comparing against formats:\n";
-        print STDERR @{ $self->{_formats} };
-        print STDERR "\n";
+        print {*STDERR} "$DEBUG: comparing against formats:\n";
+        print {*STDERR} @{ $self->{_formats} };
+        print {*STDERR} "\n";
 
     } elsif ( $self->{debug} ) {
-        print STDERR "$DEBUG: not a shebang, ignoring...\n";
+        print {*STDERR} "$DEBUG: not a shebang, ignoring...\n";
     }
 
     if ( $shebang && none { ( $shebang . $cli ) eq $_ }
@@ -66,8 +66,8 @@ sub violates {
     {
 
         if ( $self->{debug} ) {
-            print STDERR "$DEBUG: we got a violation:\n";
-            print STDERR '>' . $shebang . $cli . "<\n";
+            print {*STDERR} "$DEBUG: we got a violation:\n";
+            print {*STDERR} '>' . $shebang . $cli . "<\n";
         }
 
         return $self->violation(
