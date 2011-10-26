@@ -46,7 +46,10 @@ sub violates {
     }xsm;
 
     if ($cli) {
-        $cli =~ s/\s+$//;
+        $cli =~ s{
+            \s+ #one or more whitespace character, PCPLRSB-9 / http://logiclab.jira.com/browse/PCPLRSB-9
+            $ #end of string
+        }{}xsm;
     }
 
     if ( $self->{debug} && $shebang && $cli ) {
@@ -178,8 +181,8 @@ Your format should look like the following:
 Optionally and for development purposes I have added a debug flag. This can be set in 
 your L<Perl::Critic> configuration file as follows:
 
-	[logicLAB::RequireSheBang]
-	debug = 1
+    [logicLAB::RequireSheBang]
+    debug = 1
 
 This enables more explicit output on what is going on during the actual processing of 
 the policy.
