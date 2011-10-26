@@ -13,7 +13,7 @@ $Data::Dumper::Useqq = 1;
 
 our $VERSION = '0.03';
 
-Readonly::Scalar my $EXPL => q{she-bang line should adhere to requirement};
+Readonly::Scalar my $EXPL  => q{she-bang line should adhere to requirement};
 Readonly::Scalar my $DEBUG => q{DEBUG logicLAB::RequireSheBang};
 
 use constant default_severity     => $SEVERITY_MEDIUM;
@@ -31,7 +31,7 @@ sub applies_to {
 sub violates {
     my ( $self, $elem ) = @_;
 
-    if ($self->{debug}) {
+    if ( $self->{debug} ) {
         print STDERR "$DEBUG: we got element:\n";
         print STDERR Dumper $elem;
     }
@@ -49,25 +49,27 @@ sub violates {
         $cli =~ s/\s+$//;
     }
 
-    if ($self->{debug} && $shebang && $cli) {
+    if ( $self->{debug} && $shebang && $cli ) {
         print STDERR "$DEBUG: we got a shebang line:\n";
-        print STDERR '>'.$shebang.$cli."<\n";
-            
+        print STDERR '>' . $shebang . $cli . "<\n";
+
         print STDERR "$DEBUG: comparing against formats:\n";
         print STDERR @{ $self->{_formats} };
         print STDERR "\n";
-        
-    } elsif ($self->{debug}) {
+
+    } elsif ( $self->{debug} ) {
         print STDERR "$DEBUG: not a shebang, ignoring...\n";
     }
 
-    if ( $shebang && none { ($shebang.$cli) eq $_ } @{ $self->{_formats} } ) {
+    if ( $shebang && none { ( $shebang . $cli ) eq $_ }
+        @{ $self->{_formats} } )
+    {
 
-        if ($self->{debug}) {
+        if ( $self->{debug} ) {
             print STDERR "$DEBUG: we got a violation:\n";
-            print STDERR '>'.$shebang.$cli."<\n";
+            print STDERR '>' . $shebang . $cli . "<\n";
         }
-        
+
         return $self->violation(
             q{she-bang line not conforming with requirement},
             $EXPL, $elem );
@@ -78,7 +80,6 @@ sub violates {
 
 sub initialize_if_enabled {
     my ( $self, $config ) = @_;
-
 
     #Formats:
     #Setting the default
@@ -91,7 +92,7 @@ sub initialize_if_enabled {
     if ($formats) {
         $self->{_formats} = $self->_parse_formats($formats);
     }
-    
+
     #Debug
     #Setting the default
     $self->{debug} = $config->get('debug');
@@ -124,7 +125,7 @@ is themed: logiclab.
 
 =head1 VERSION
 
-This documentation describes version 0.02.
+This documentation describes version 0.03.
 
 =head1 DESCRIPTION
 
@@ -172,6 +173,17 @@ Your format should look like the following:
     [logicLAB::RequireSheBang]
     formats = #!/usr/local/bin/perl || #!/usr/local/bin/perl -w || #!/usr/local/bin/perl -wT
 
+=head2 debug
+
+Optionally and for development purposes I have added a debug flag. This can be set in 
+your L<Perl::Critic> configuration file as follows:
+
+	[logicLAB::RequireSheBang]
+	debug = 1
+
+This enables more explicit output on what is going on during the actual processing of 
+the policy.
+
 =head1 DEPENDENCIES AND REQUIREMENTS
 
 =over
@@ -215,6 +227,8 @@ The following policies have been disabled for this distribution
 =item * L<Perl::Critic::Policy::ValuesAndExpressions::ProhibitConstantPragma>
 
 =item * L<Perl::Critic::Policy::NamingConventions::Capitalization>
+
+=item * L<Data::Dumper>
 
 =back
 
