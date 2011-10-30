@@ -239,16 +239,17 @@ See also F<t/perlcriticrc>
 
 =head2 TEST COVERAGE
 
-Coverage test executed the following way:
+Coverage test executed the following way, the coverage report is based on the 
+version described in this documentation (see L</VERSION>).
 
     ./Build testcover
 
-    ---------------------------- ------ ------ ------ ------ ------ ------ ------
-    File                           stmt   bran   cond    sub    pod   time  total
-    ---------------------------- ------ ------ ------ ------ ------ ------ ------
-    ...ogicLAB/RequireSheBang.pm  100.0  100.0   66.7  100.0  100.0  100.0   98.4
-    Total                         100.0  100.0   66.7  100.0  100.0  100.0   98.4
-    ---------------------------- ------ ------ ------ ------ ------ ------ ------
+	---------------------------- ------ ------ ------ ------ ------ ------ ------
+	File                           stmt   bran   cond    sub    pod   time  total
+	---------------------------- ------ ------ ------ ------ ------ ------ ------
+	...ogicLAB/RequireSheBang.pm   70.4   64.3   44.4  100.0  100.0  100.0   72.1
+	Total                          70.4   64.3   44.4  100.0  100.0  100.0   72.1
+	---------------------------- ------ ------ ------ ------ ------ ------ ------
 
 =head1 SEE ALSO
 
