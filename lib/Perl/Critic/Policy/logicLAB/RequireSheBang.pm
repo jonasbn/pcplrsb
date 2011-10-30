@@ -29,8 +29,8 @@ sub applies_to {
 }
 
 sub violates {
-    my ( $self, $elem ) = @_;
-
+    my ( $self, $elem, $doc ) = @_;
+    
     if ( $self->{debug} ) {
         print {*STDERR} "$DEBUG: we got element:\n";
         print {*STDERR} Dumper $elem;
