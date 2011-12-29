@@ -22,7 +22,10 @@ use constant supported_parameters => qw(formats debug);
 
 sub prepare_to_scan_document {
     my ( $self, $document ) = @_;
- 
+ 	if ($self->{exempt_modules} && $document->is_module()) {
+		return 0;
+	}
+
     return $document->is_program();
 }
 
@@ -102,9 +105,12 @@ sub initialize_if_enabled {
         $self->{_formats} = $self->_parse_formats($formats);
     }
 
-    #Debug
-    #Setting the default
-    $self->{debug} = $config->get('debug');
+    #debug
+    $self->{debug} = $config->get('debug') || 0;
+
+    #exempt_modules
+    $self->{exempt_modules} = $config->get('exempt_modules') || 1;
+
 
     return $TRUE;
 }
@@ -181,6 +187,13 @@ Your format should look like the following:
 
     [logicLAB::RequireSheBang]
     formats = #!/usr/local/bin/perl || #!/usr/local/bin/perl -w || #!/usr/local/bin/perl -wT
+
+=head2 exempt_modules
+
+You can specify if you want to check modules also. The default is to exempt from checking modules.
+
+	[logicLAB::RequireSheBang]
+	exempt_modules = 0
 
 =head2 debug
 
