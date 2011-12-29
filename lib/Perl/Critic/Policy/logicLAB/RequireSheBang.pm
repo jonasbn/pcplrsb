@@ -190,7 +190,8 @@ Your format should look like the following:
 
 =head2 exempt_modules
 
-You can specify if you want to check modules also. The default is to exempt from checking modules.
+You can specify if you want to check modules also. The default is to exempt from checking 
+shebang lines in modules.
 
 	[logicLAB::RequireSheBang]
 	exempt_modules = 0
