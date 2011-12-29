@@ -20,26 +20,32 @@ use constant default_severity     => $SEVERITY_MEDIUM;
 use constant default_themes       => qw(logiclab);
 use constant supported_parameters => qw(formats debug);
 
-sub applies_to {
-    return (
-        qw(
-            PPI::Token::Comment
-            )
-    );
+sub prepare_to_scan_document {
+    my ( $self, $document ) = @_;
+ 
+    return $document->is_program();
 }
 
 sub violates {
-    my ( $self, $elem, $doc ) = @_;
-    
+    my ( $self, $element, $doc ) = @_;
+
+	my $statement = $doc->find_first( 'PPI::Token::Comment' );
+
+	if (not $statement->location()->[0]) {
+        return $self->violation(
+            q{she-bang line not located as first line},
+            $EXPL, $statement );
+	}	
+
     if ( $self->{debug} ) {
-        print {*STDERR} "$DEBUG: we got element:\n";
-        print {*STDERR} Dumper $elem;
+        print {*STDERR} "$DEBUG: we got statement:\n";
+        print {*STDERR} Dumper $statement;
     }
 
-    my ( $shebang, $cli ) = $elem =~ m{
+    my ( $shebang, $cli ) = $element =~ m{
             \A  #beginning of string
             (\#!) #actual she-bang
-            #([^\r\n]*?) #the path and possible flags, note the space character
+            #([^\r\n]*?) #the path and possible flags
             ([/\-\w ]+?) #the path and possible flags, note the space character
             \s* #possible left over whitespace (PPI?)
             \Z #indication of end of string to assist above capture
@@ -57,7 +63,7 @@ sub violates {
         print {*STDERR} '>' . $shebang . $cli . "<\n";
 
         print {*STDERR} "$DEBUG: comparing against formats:\n";
-        print {*STDERR} @{ $self->{_formats} };
+        print {*STDERR} Dumper $self->{_formats};
         print {*STDERR} "\n";
 
     } elsif ( $self->{debug} ) {
@@ -75,7 +81,7 @@ sub violates {
 
         return $self->violation(
             q{she-bang line not conforming with requirement},
-            $EXPL, $elem );
+            $EXPL, $element );
     }
 
     return;
