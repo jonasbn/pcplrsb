@@ -11,7 +11,7 @@ use Data::Dumper;
 
 $Data::Dumper::Useqq = 1;
 
-our $VERSION = '0.03';
+our $VERSION = '0.04';
 
 Readonly::Scalar my $EXPL  => q{she-bang line should adhere to requirement};
 Readonly::Scalar my $DEBUG => q{DEBUG logicLAB::RequireSheBang};
