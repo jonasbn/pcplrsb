@@ -6,6 +6,13 @@ Project change log:
 
 http://logiclab.jira.com/browse/PCPLRSB#selectedTab=com.atlassian.jira.plugin.system.project%3Achangelog-panel
 
+HEAD
+
+- Added changes.t automatic assertion of the integrity of the Changes file, see also PCPLRSB-10
+
+  https://logiclab.jira.com/browse/PCPLRSB-11
+
+
 0.04 2013-08-02
 
 - Maintenance release, update not necessary
@@ -18,9 +25,9 @@ http://logiclab.jira.com/browse/PCPLRSB#selectedTab=com.atlassian.jira.plugin.sy
   
   https://logiclab.jira.com/browse/PCPLRSB-10
   
-- Minor improvement/correction to the central regular expression [PCPLRSB-9
+- Minor improvement/correction to the central regular expression [PCPLRSB-9]
   
-  https://logiclab.jira.com/browse/PCPLRSB-9]
+  https://logiclab.jira.com/browse/PCPLRSB-9
 
 - Added a debugging flag [PCPLRSB-8]
   
