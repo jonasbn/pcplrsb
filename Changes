@@ -8,6 +8,10 @@ http://logiclab.jira.com/browse/PCPLRSB#selectedTab=com.atlassian.jira.plugin.sy
 
 HEAD
 
+- Added kwalitee.t implementing Test::Kwalitee tests [PCPLRSB-5]
+
+  https://logiclab.jira.com/browse/PCPLRSB-5
+
 - Added changes.t automatic assertion of the integrity of the Changes file, see also PCPLRSB-10
 
   https://logiclab.jira.com/browse/PCPLRSB-11
