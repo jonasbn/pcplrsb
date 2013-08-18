@@ -239,7 +239,11 @@ however change in the future, but will propably be made configurable is possible
 
 Please use Requets Tracker for bug reporting:
 
-    http://rt.cpan.org/NoAuth/Bugs.html?Dist=Perl-Critic-logicLAB-RequireSheBang
+=over
+
+=item * L<http://rt.cpan.org/NoAuth/Bugs.html?Dist=Perl-Critic-logicLAB-RequireSheBang>
+
+=back
 
 =head1 TEST AND QUALITY
 
@@ -248,6 +252,14 @@ The following policies have been disabled for this distribution
 =over
 
 =item * L<Perl::Critic::Policy::ValuesAndExpressions::ProhibitConstantPragma>
+
+Constants are good, - see the link below.
+
+=over
+
+=item * L<https://logiclab.jira.com/wiki/display/OPEN/Perl-Critic-Policy-ValuesAndExpressions-ProhibitConstantPragma>
+
+=back
 
 =item * L<Perl::Critic::Policy::NamingConventions::Capitalization>
 
@@ -305,7 +317,7 @@ version described in this documentation (see L</VERSION>).
 
 =head1 LICENSE AND COPYRIGHT
 
-Copyright (c) 2011 Jonas B. Nielsen, jonasbn. All rights reserved.
+Copyright (c) 2011-2013 Jonas B. Nielsen, jonasbn. All rights reserved.
 
 This program is free software; you can redistribute it and/or modify it under the 
 same terms as Perl itself.
