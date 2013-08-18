@@ -8,6 +8,12 @@ http://logiclab.jira.com/browse/PCPLRSB#selectedTab=com.atlassian.jira.plugin.sy
 
 HEAD
 
+- Added new feature: exemption from package as a configurable parameter
+  This feature makes it possible to avoid the check from package files
+  [PCPLRSB-5]
+
+  https://logiclab.jira.com/browse/PCPLRSB-5
+
 - Added kwalitee.t implementing Test::Kwalitee tests [PCPLRSB-12]
 
   https://logiclab.jira.com/browse/PCPLRSB-12
