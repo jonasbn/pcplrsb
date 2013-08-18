@@ -233,7 +233,7 @@ This distribution has no known incompatibilities.
 
 The distribution has now known bugs or limitations. It locates shebang lines 
 through out the source code, not limiting itself to the first line. This might 
-however change in the future, but will propably be made configurable is possible.
+however change in the future, but will propably be made configurable if possible.
 
 =head1 BUG REPORTING
 
