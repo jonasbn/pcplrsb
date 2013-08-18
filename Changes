@@ -12,7 +12,8 @@ HEAD
 
   https://logiclab.jira.com/browse/PCPLRSB-12
 
-- Added changes.t automatic assertion of the integrity of the Changes file, see also PCPLRSB-10
+- Added changes.t automatic assertion of the integrity of the Changes file, 
+  see also PCPLRSB-10 [PCPLRSB-11]
 
   https://logiclab.jira.com/browse/PCPLRSB-11
 
