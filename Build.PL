@@ -25,7 +25,7 @@ my $build = Module::Build->new(
         resources => {
             homepage => 'http://logiclab.jira.com/wiki/display/PCPLRSB/Home',
             bugtracker => 'http://rt.cpan.org/NoAuth/Bugs.html?Dist=Perl-Critic-logicLAB-Require-SheBang',
-            repository => 'http://logicLAB.jira.com/svn/PCPLRSB',
+            repository => 'https://github.com/jonasbn/pcplrsb',
             ProjectChangelog =>
                 'http://logiclab.jira.com/browse/PCPLRSB#selectedTab=com.atlassian.jira.plugin.system.project%3Achangelog-panel',
             ProjectSite => 'http://logicLAB.jira.com/browse/PCPLRSB',
