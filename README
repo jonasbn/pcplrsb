@@ -1,0 +1,153 @@
+NAME
+    Perl::Critic::Policy::logicLAB::RequireSheBang - simple policy for
+    keeping your shebang line uniform
+
+AFFILIATION
+    This policy is a policy in the Perl::Critic::logicLAB distribution. The
+    policy is themed: logiclab.
+
+VERSION
+    This documentation describes version 0.03.
+
+DESCRIPTION
+    This policy is intended in guarding your use of the shebang line. It
+    assists in making sure that your shebang line adheres to certain
+    formats.
+
+    The default format is
+
+        #!/usr/local/bin/perl
+
+    You can however specify another or define your own in the configuration
+    of the policy.
+
+    NB this policy does currently not warn about missing shebang lines, it
+    only checks shebang lines encountered.
+
+CONFIGURATION AND ENVIRONMENT
+    This policy allow you to configure the contents of the shebang lines you
+    want to allow using "formats".
+
+  formats
+        [logicLAB::RequireSheBang]
+        formats = #!/usr/local/bin/perl || #!/usr/bin/perl || #!perl || #!env perl
+
+    Since the default shebang line enforced by the policy is:
+
+        #!/usr/local/bin/perl
+
+    Please note that if you however what to extend the pattern, you also
+    have to specify was is normally the default pattern since configuration
+    overwrites the default even for extensions.
+
+    This mean that if you want to allow:
+
+        #!/usr/local/bin/perl
+
+        #!/usr/local/bin/perl -w
+    
+        #!/usr/local/bin/perl -wT
+
+    Your format should look like the following:
+
+        [logicLAB::RequireSheBang]
+        formats = #!/usr/local/bin/perl || #!/usr/local/bin/perl -w || #!/usr/local/bin/perl -wT
+
+  exempt_modules
+    You can specify if you want to check modules also. The default is to
+    exempt from checking shebang lines in modules.
+
+            [logicLAB::RequireSheBang]
+            exempt_modules = 0
+
+  debug
+    Optionally and for development purposes I have added a debug flag. This
+    can be set in your Perl::Critic configuration file as follows:
+
+        [logicLAB::RequireSheBang]
+        debug = 1
+
+    This enables more explicit output on what is going on during the actual
+    processing of the policy.
+
+DEPENDENCIES AND REQUIREMENTS
+    *   Perl::Critic
+
+    *   Perl::Critic::Utils
+
+    *   Readonly
+
+    *   Test::More
+
+    *   Test::Perl::Critic
+
+    *   List::MoreUtils
+
+INCOMPATIBILITIES
+    This distribution has no known incompatibilities.
+
+BUGS AND LIMITATIONS
+    The distribution has now known bugs or limitations. It locates shebang
+    lines through out the source code, not limiting itself to the first
+    line. This might however change in the future, but will propably be made
+    configurable if possible.
+
+BUG REPORTING
+    Please use Requets Tracker for bug reporting:
+
+    *   <http://rt.cpan.org/NoAuth/Bugs.html?Dist=Perl-Critic-logicLAB-Requi
+        reSheBang>
+
+TEST AND QUALITY
+    The following policies have been disabled for this distribution
+
+    *   Perl::Critic::Policy::ValuesAndExpressions::ProhibitConstantPragma
+
+        Constants are good, - see the link below.
+
+        *   <https://logiclab.jira.com/wiki/display/OPEN/Perl-Critic-Policy-
+            ValuesAndExpressions-ProhibitConstantPragma>
+
+    *   Perl::Critic::Policy::NamingConventions::Capitalization
+
+    *   Data::Dumper
+
+    See also t/perlcriticrc
+
+  TEST COVERAGE
+    Coverage test executed the following way, the coverage report is based
+    on the version described in this documentation (see "VERSION").
+
+        ./Build testcover
+
+            ---------------------------- ------ ------ ------ ------ ------ ------ ------
+            File                           stmt   bran   cond    sub    pod   time  total
+            ---------------------------- ------ ------ ------ ------ ------ ------ ------
+            ...ogicLAB/RequireSheBang.pm   70.4   64.3   44.4  100.0  100.0  100.0   72.1
+            Total                          70.4   64.3   44.4  100.0  100.0  100.0   72.1
+            ---------------------------- ------ ------ ------ ------ ------ ------ ------
+
+SEE ALSO
+    *   Perl::Critic
+
+    *   <http://perldoc.perl.org/perlrun.html>
+
+    *   <http://logiclab.jira.com/wiki/display/OPEN/Development#Development-
+        MakeyourComponentsEnvironmentAgnostic>
+
+    *   <http://logiclab.jira.com/wiki/display/PCPLRSB/Home>
+
+    *   <http://logiclab.jira.com/wiki/display/PCLL/Home>
+
+AUTHOR
+    *   Jonas B. Nielsen, jonasbn "<jonasbn@cpan.org>"
+
+ACKNOWLEDGEMENT
+    *   Erik Johansen (uniejo), feedback to version 0.01
+
+LICENSE AND COPYRIGHT
+    Copyright (c) 2011-2013 Jonas B. Nielsen, jonasbn. All rights reserved.
+
+    This program is free software; you can redistribute it and/or modify it
+    under the same terms as Perl itself.
+
