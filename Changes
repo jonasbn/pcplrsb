@@ -8,6 +8,8 @@ http://logiclab.jira.com/browse/PCPLRSB#selectedTab=com.atlassian.jira.plugin.sy
 
 HEAD
 
+- Specified Perl version 5.8.0 in Build.PL
+
 - Added new feature: exemption from package as a configurable parameter
   This feature makes it possible to avoid the check from package files
   [PCPLRSB-5]
