@@ -25,7 +25,7 @@ my $build = Module::Build->new(
     meta_merge => {
         resources => {
             homepage => 'http://logiclab.jira.com/wiki/display/PCPLRSB/Home',
-            bugtracker => 'http://rt.cpan.org/NoAuth/Bugs.html?Dist=Perl-Critic-logicLAB-Require-SheBang',
+            bugtracker => 'http://rt.cpan.org/NoAuth/Bugs.html?Dist=Perl-Critic-Policy-logicLAB-Require-SheBang',
             repository => 'https://github.com/jonasbn/pcplrsb',
             ProjectChangelog =>
                 'http://logiclab.jira.com/browse/PCPLRSB#selectedTab=com.atlassian.jira.plugin.system.project%3Achangelog-panel',
