@@ -58,3 +58,6 @@ svn-commit\.*
 \.kpf
 \.html
 spikes
+
+# Github - Travis integration
+\.travis\.yml
