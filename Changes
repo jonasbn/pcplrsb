@@ -6,7 +6,11 @@ Project change log:
 
 http://logiclab.jira.com/browse/PCPLRSB#selectedTab=com.atlassian.jira.plugin.system.project%3Achangelog-panel
 
-HEAD
+0.05 2014-02-27
+
+- Maintenance release, update not necessary
+
+- Specified Module::Build 0.40 requirement as hinted by Module::Build
 
 - Specified Perl version 5.8.0 in Build.PL
 
@@ -20,7 +24,7 @@ HEAD
 
   https://logiclab.jira.com/browse/PCPLRSB-12
 
-- Added changes.t automatic assertion of the integrity of the Changes file, 
+- Added changes.t automatic assertion of the integrity of the Changes file,
   see also PCPLRSB-10 [PCPLRSB-11]
 
   https://logiclab.jira.com/browse/PCPLRSB-11
@@ -35,15 +39,15 @@ HEAD
 
   Quest: http://questhub.io/realm/perl/quest/51f0fd8e18ba7dcf4b000040
   Spec: https://metacpan.org/module/CPAN::Changes::Spec
-  
+
   https://logiclab.jira.com/browse/PCPLRSB-10
-  
+
 - Minor improvement/correction to the central regular expression [PCPLRSB-9]
-  
+
   https://logiclab.jira.com/browse/PCPLRSB-9
 
 - Added a debugging flag [PCPLRSB-8]
-  
+
   https://logiclab.jira.com/browse/PCPLRSB-8
 
 
@@ -61,7 +65,7 @@ HEAD
 
 - Minor corrections to documentation [PCPLRSB-3]
   http://logiclab.jira.com/browse/PCPLRSB-3
-  
+
   Theme changed to logiclab from maintenance according to the guidelines, I
   had previously overlooked this:
   http://search.cpan.org/dist/Perl-Critic/lib/Perl/Critic/DEVELOPER.pod#Themes

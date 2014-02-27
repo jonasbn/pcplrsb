@@ -11,7 +11,7 @@ use Data::Dumper;
 
 $Data::Dumper::Useqq = 1;
 
-our $VERSION = '0.04';
+our $VERSION = '0.05';
 
 Readonly::Scalar my $EXPL  => q{she-bang line should adhere to requirement};
 Readonly::Scalar my $DEBUG => q{DEBUG logicLAB::RequireSheBang};
@@ -38,7 +38,7 @@ sub violates {
         return $self->violation(
             q{she-bang line not located as first line},
             $EXPL, $statement );
-	}	
+	}
 
     if ( $self->{debug} ) {
         print {*STDERR} "$DEBUG: we got statement:\n";
@@ -133,14 +133,14 @@ __END__
 
 Perl::Critic::Policy::logicLAB::RequireSheBang - simple policy for keeping your shebang line uniform
 
-=head1 AFFILIATION 
+=head1 AFFILIATION
 
 This policy is a policy in the Perl::Critic::logicLAB distribution. The policy
 is themed: logiclab.
 
 =head1 VERSION
 
-This documentation describes version 0.03.
+This documentation describes version 0.05.
 
 =head1 DESCRIPTION
 
@@ -150,7 +150,7 @@ in making sure that your shebang line adheres to certain formats.
 The default format is
 
     #!/usr/local/bin/perl
-    
+
 You can however specify another or define your own in the configuration of the
 policy.
 
@@ -159,7 +159,7 @@ checks shebang lines encountered.
 
 =head1 CONFIGURATION AND ENVIRONMENT
 
-This policy allow you to configure the contents of the shebang lines you 
+This policy allow you to configure the contents of the shebang lines you
 want to allow using L</formats>.
 
 =head2 formats
@@ -170,9 +170,9 @@ want to allow using L</formats>.
 Since the default shebang line enforced by the policy is:
 
     #!/usr/local/bin/perl
-    
-Please note that if you however what to extend the pattern, you also have 
-to specify was is normally the default pattern since configuration 
+
+Please note that if you however what to extend the pattern, you also have
+to specify was is normally the default pattern since configuration
 overwrites the default even for extensions.
 
 This mean that if you want to allow:
@@ -180,9 +180,9 @@ This mean that if you want to allow:
     #!/usr/local/bin/perl
 
     #!/usr/local/bin/perl -w
-    
+
     #!/usr/local/bin/perl -wT
-        
+
 Your format should look like the following:
 
     [logicLAB::RequireSheBang]
@@ -190,7 +190,7 @@ Your format should look like the following:
 
 =head2 exempt_modules
 
-You can specify if you want to check modules also. The default is to exempt from checking 
+You can specify if you want to check modules also. The default is to exempt from checking
 shebang lines in modules.
 
 	[logicLAB::RequireSheBang]
@@ -198,13 +198,13 @@ shebang lines in modules.
 
 =head2 debug
 
-Optionally and for development purposes I have added a debug flag. This can be set in 
+Optionally and for development purposes I have added a debug flag. This can be set in
 your L<Perl::Critic> configuration file as follows:
 
     [logicLAB::RequireSheBang]
     debug = 1
 
-This enables more explicit output on what is going on during the actual processing of 
+This enables more explicit output on what is going on during the actual processing of
 the policy.
 
 =head1 DEPENDENCIES AND REQUIREMENTS
@@ -231,8 +231,8 @@ This distribution has no known incompatibilities.
 
 =head1 BUGS AND LIMITATIONS
 
-The distribution has now known bugs or limitations. It locates shebang lines 
-through out the source code, not limiting itself to the first line. This might 
+The distribution has now known bugs or limitations. It locates shebang lines
+through out the source code, not limiting itself to the first line. This might
 however change in the future, but will propably be made configurable if possible.
 
 =head1 BUG REPORTING
@@ -271,7 +271,7 @@ See also F<t/perlcriticrc>
 
 =head2 TEST COVERAGE
 
-Coverage test executed the following way, the coverage report is based on the 
+Coverage test executed the following way, the coverage report is based on the
 version described in this documentation (see L</VERSION>).
 
     ./Build testcover
@@ -313,13 +313,13 @@ version described in this documentation (see L</VERSION>).
 
 =item * Erik Johansen (uniejo), feedback to version 0.01
 
-=back 
+=back
 
 =head1 LICENSE AND COPYRIGHT
 
-Copyright (c) 2011-2013 Jonas B. Nielsen, jonasbn. All rights reserved.
+Copyright (c) 2011-2014 Jonas B. Nielsen, jonasbn. All rights reserved.
 
-This program is free software; you can redistribute it and/or modify it under the 
+This program is free software; you can redistribute it and/or modify it under the
 same terms as Perl itself.
 
 =cut

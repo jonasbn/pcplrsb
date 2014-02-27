@@ -7,7 +7,7 @@ AFFILIATION
     policy is themed: logiclab.
 
 VERSION
-    This documentation describes version 0.03.
+    This documentation describes version 0.05.
 
 DESCRIPTION
     This policy is intended in guarding your use of the shebang line. It
@@ -45,7 +45,7 @@ CONFIGURATION AND ENVIRONMENT
         #!/usr/local/bin/perl
 
         #!/usr/local/bin/perl -w
-    
+
         #!/usr/local/bin/perl -wT
 
     Your format should look like the following:
@@ -146,7 +146,7 @@ ACKNOWLEDGEMENT
     *   Erik Johansen (uniejo), feedback to version 0.01
 
 LICENSE AND COPYRIGHT
-    Copyright (c) 2011-2013 Jonas B. Nielsen, jonasbn. All rights reserved.
+    Copyright (c) 2011-2014 Jonas B. Nielsen, jonasbn. All rights reserved.
 
     This program is free software; you can redistribute it and/or modify it
     under the same terms as Perl itself.
