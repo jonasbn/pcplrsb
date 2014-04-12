@@ -1,21 +1,10 @@
-#Courtesy of chromatic
-#http://search.cpan.org/~chromatic/Test-Kwalitee/lib/Test/Kwalitee.pm
+#!/usr/bin/env perl
 
-# $Id$
-
-use strict;
-use warnings;
-use Env qw($TEST_AUTHOR);
-use Test::More;
-
-eval {
-    require Test::Kwalitee;
-};
-
-if ($@ and $TEST_AUTHOR) {
-    plan skip_all => 'Test::Kwalitee not installed; skipping';
-} elsif (not $TEST_AUTHOR) {
-    plan skip_all => 'set TEST_AUTHOR to enable this test';
-} else {
-    Test::Kwalitee->import();
+BEGIN {
+    unless ($ENV{RELEASE_TESTING}) {
+        use Test::More;
+        plan(skip_all => 'these tests are for release candidate testing');
+    }
 }
+
+use Test::Kwalitee;
