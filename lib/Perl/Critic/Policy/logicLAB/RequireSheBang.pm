@@ -8,6 +8,7 @@ use base 'Perl::Critic::Policy';
 use Perl::Critic::Utils qw{ $SEVERITY_MEDIUM :booleans };
 use List::MoreUtils qw(none);
 use Data::Dumper;
+use 5.008;
 
 $Data::Dumper::Useqq = 1;
 
