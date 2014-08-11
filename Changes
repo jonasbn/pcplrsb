@@ -1,10 +1,14 @@
 Changes file for Perl::Critic::Policy::logicLAB::RequireSheBang
 
-$Id$
-
 Project change log:
 
 http://logiclab.jira.com/browse/PCPLRSB#selectedTab=com.atlassian.jira.plugin.system.project%3Achangelog-panel
+
+0.06 2014.08.11
+
+- Maintenance release, update not necessary
+
+- Removed dot dirs from distribution
 
 0.05 2014-02-27
 
@@ -24,8 +28,8 @@ http://logiclab.jira.com/browse/PCPLRSB#selectedTab=com.atlassian.jira.plugin.sy
 
   https://logiclab.jira.com/browse/PCPLRSB-12
 
-- Added changes.t automatic assertion of the integrity of the Changes file,
-  see also PCPLRSB-10 [PCPLRSB-11]
+- Added changes.t automatic assertion of the integrity of the Changes 
+  file, see also PCPLRSB-10 [PCPLRSB-11]
 
   https://logiclab.jira.com/browse/PCPLRSB-11
 
