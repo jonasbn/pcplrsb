@@ -130,6 +130,14 @@ __END__
 
 =pod
 
+=begin markdown
+
+[![CPAN version](https://badge.fury.io/pl/Perl-Critic-Policy-logicLAB-RequireSheBang.svg)](http://badge.fury.io/pl/Perl-Critic-Policy-logicLAB-RequireSheBang)
+[![Build Status](https://travis-ci.org/jonasbn/pcplrsb.svg?branch=master)](https://travis-ci.org/jonasbn/pcplrsb)
+[![Coverage Status](https://coveralls.io/repos/jonasbn/pcplrsb/badge.png)](https://coveralls.io/r/jonasbn/pcplrsb)
+
+=end markdown
+
 =head1 NAME
 
 Perl::Critic::Policy::logicLAB::RequireSheBang - simple policy for keeping your shebang line uniform
