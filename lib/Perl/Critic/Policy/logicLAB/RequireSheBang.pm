@@ -12,7 +12,7 @@ use 5.008;
 
 $Data::Dumper::Useqq = 1;
 
-our $VERSION = '0.06';
+our $VERSION = '0.07';
 
 Readonly::Scalar my $EXPL  => q{she-bang line should adhere to requirement};
 Readonly::Scalar my $DEBUG => q{DEBUG logicLAB::RequireSheBang};
@@ -147,7 +147,7 @@ is themed: logiclab.
 
 =head1 VERSION
 
-This documentation describes version 0.05.
+This documentation describes version 0.07.
 
 =head1 DESCRIPTION
 
@@ -244,7 +244,7 @@ however change in the future, but will propably be made configurable if possible
 
 =head1 BUG REPORTING
 
-Please use Requets Tracker for bug reporting:
+Please use Request Tracker for bug reporting:
 
 =over
 
