@@ -4,15 +4,19 @@ Project change log:
 
 http://logiclab.jira.com/browse/PCPLRSB#selectedTab=com.atlassian.jira.plugin.system.project%3Achangelog-panel
 
-0.06 2014.08.11
+0.07 2015-08-28 Maintenance release, update not necessary
 
-- Maintenance release, update not necessary
+- Migrated from Module::Build to Dist::Zilla
+
+- Updated from perl (artistic 1.0) license to artistic license 2.0
+
+
+0.06 2014-08-11 Maintenance release, update not necessary
 
 - Removed dot dirs from distribution
 
-0.05 2014-02-27
 
-- Maintenance release, update not necessary
+0.05 2014-02-27 Maintenance release, update not necessary
 
 - Specified Module::Build 0.40 requirement as hinted by Module::Build
 
@@ -34,9 +38,7 @@ http://logiclab.jira.com/browse/PCPLRSB#selectedTab=com.atlassian.jira.plugin.sy
   https://logiclab.jira.com/browse/PCPLRSB-11
 
 
-0.04 2013-08-02
-
-- Maintenance release, update not necessary
+0.04 2013-08-02 Maintenance release, update not necessary
 
 - Adding a Changes file as part of my Questhub quest adhering to the standard
   described in: CPAN::Changes::Spec [PCPLRSB-10]
@@ -55,17 +57,13 @@ http://logiclab.jira.com/browse/PCPLRSB#selectedTab=com.atlassian.jira.plugin.sy
   https://logiclab.jira.com/browse/PCPLRSB-8
 
 
-0.03 2011-06-06
-
-- Bug fix release, update recommended
+0.03 2011-06-06 Bug fix release, update recommended
 
 - Serious bug fix to parsing of shebang lines [PCPLRSB-6]
   http://logiclab.jira.com/browse/PCPLRSB-6
 
 
-0.02 2011-05-16
-
-- Bug fix release, Update recommended
+0.02 2011-05-16 Bug fix release, Update recommended
 
 - Minor corrections to documentation [PCPLRSB-3]
   http://logiclab.jira.com/browse/PCPLRSB-3
@@ -77,6 +75,6 @@ http://logiclab.jira.com/browse/PCPLRSB#selectedTab=com.atlassian.jira.plugin.sy
 - Added Changes (this file)
 
 
-0.01 2011-05-03
+0.01 2011-05-03 Initial release
 
 - Initial release

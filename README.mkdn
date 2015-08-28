@@ -27,7 +27,7 @@ The default format is
 You can however specify another or define your own in the configuration of the
 policy.
 
-__NB__ this policy does currently not warn about missing shebang lines, it only
+**NB** this policy does currently not warn about missing shebang lines, it only
 checks shebang lines encountered.
 
 # CONFIGURATION AND ENVIRONMENT
@@ -66,8 +66,8 @@ Your format should look like the following:
 You can specify if you want to check modules also. The default is to exempt from checking
 shebang lines in modules.
 
-        [logicLAB::RequireSheBang]
-        exempt_modules = 0
+    [logicLAB::RequireSheBang]
+    exempt_modules = 0
 
 ## debug
 
@@ -127,12 +127,12 @@ version described in this documentation (see ["VERSION"](#version)).
 
     ./Build testcover
 
-        ---------------------------- ------ ------ ------ ------ ------ ------ ------
-        File                           stmt   bran   cond    sub    pod   time  total
-        ---------------------------- ------ ------ ------ ------ ------ ------ ------
-        ...ogicLAB/RequireSheBang.pm   70.4   64.3   44.4  100.0  100.0  100.0   72.1
-        Total                          70.4   64.3   44.4  100.0  100.0  100.0   72.1
-        ---------------------------- ------ ------ ------ ------ ------ ------ ------
+    ---------------------------- ------ ------ ------ ------ ------ ------ ------
+    File                           stmt   bran   cond    sub    pod   time  total
+    ---------------------------- ------ ------ ------ ------ ------ ------ ------
+    ...ogicLAB/RequireSheBang.pm   70.4   64.3   44.4  100.0  100.0  100.0   72.1
+    Total                          70.4   64.3   44.4  100.0  100.0  100.0   72.1
+    ---------------------------- ------ ------ ------ ------ ------ ------ ------
 
 # SEE ALSO
 

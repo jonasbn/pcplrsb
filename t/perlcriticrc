@@ -13,10 +13,6 @@ verbose  = 8
 [Documentation::RequirePodSections]
 lib_sections    = NAME|AFFILIATION|VERSION|DESCRIPTION|CONFIGURATION AND ENVIRONMENT|DEPENDENCIES AND REQUIREMENTS|INCOMPATIBILITIES|BUGS AND LIMITATIONS|BUG REPORTING|TEST AND QUALITY|SEE ALSO|AUTHOR|LICENSE AND COPYRIGHT
 
-#https://metacpan.org/module/Perl::Critic::Policy::Miscellanea::RequireRcsKeywords
-[Miscellanea::RequireRcsKeywords]
-keywords = Id
-
 #https://metacpan.org/module/Perl::Critic::Policy::CodeLayout::ProhibitHardTabs
 [CodeLayout::ProhibitHardTabs]
 allow_leading_tabs = 0
