@@ -23,9 +23,9 @@ use constant supported_parameters => qw(formats debug);
 
 sub prepare_to_scan_document {
     my ( $self, $document ) = @_;
- 	if ($self->{exempt_modules} && $document->is_module()) {
-		return 0;
-	}
+    if ( $self->{exempt_modules} && $document->is_module() ) {
+        return 0;
+    }
 
     return $document->is_program();
 }
@@ -33,13 +33,12 @@ sub prepare_to_scan_document {
 sub violates {
     my ( $self, $element, $doc ) = @_;
 
-	my $statement = $doc->find_first( 'PPI::Token::Comment' );
+    my $statement = $doc->find_first('PPI::Token::Comment');
 
-	if (not $statement->location()->[0]) {
-        return $self->violation(
-            q{she-bang line not located as first line},
+    if ( not $statement->location()->[0] ) {
+        return $self->violation( q{she-bang line not located as first line},
             $EXPL, $statement );
-	}
+    }
 
     if ( $self->{debug} ) {
         print {*STDERR} "$DEBUG: we got statement:\n";
@@ -70,12 +69,12 @@ sub violates {
         print {*STDERR} Dumper $self->{_formats};
         print {*STDERR} "\n";
 
-    } elsif ( $self->{debug} ) {
+    }
+    elsif ( $self->{debug} ) {
         print {*STDERR} "$DEBUG: not a shebang, ignoring...\n";
     }
 
-    if ( $shebang && none { ( $shebang . $cli ) eq $_ }
-        @{ $self->{_formats} } )
+    if ( $shebang && none { ( $shebang . $cli ) eq $_ } @{ $self->{_formats} } )
     {
 
         if ( $self->{debug} ) {
@@ -111,7 +110,6 @@ sub initialize_if_enabled {
 
     #exempt_modules
     $self->{exempt_modules} = $config->get('exempt_modules') || 1;
-
 
     return $TRUE;
 }
@@ -202,8 +200,8 @@ Your format should look like the following:
 You can specify if you want to check modules also. The default is to exempt from checking
 shebang lines in modules.
 
-	[logicLAB::RequireSheBang]
-	exempt_modules = 0
+    [logicLAB::RequireSheBang]
+    exempt_modules = 0
 
 =head2 debug
 
@@ -285,12 +283,12 @@ version described in this documentation (see L</VERSION>).
 
     ./Build testcover
 
-	---------------------------- ------ ------ ------ ------ ------ ------ ------
-	File                           stmt   bran   cond    sub    pod   time  total
-	---------------------------- ------ ------ ------ ------ ------ ------ ------
-	...ogicLAB/RequireSheBang.pm   70.4   64.3   44.4  100.0  100.0  100.0   72.1
-	Total                          70.4   64.3   44.4  100.0  100.0  100.0   72.1
-	---------------------------- ------ ------ ------ ------ ------ ------ ------
+    ---------------------------- ------ ------ ------ ------ ------ ------ ------
+    File                           stmt   bran   cond    sub    pod   time  total
+    ---------------------------- ------ ------ ------ ------ ------ ------ ------
+    ...ogicLAB/RequireSheBang.pm   70.4   64.3   44.4  100.0  100.0  100.0   72.1
+    Total                          70.4   64.3   44.4  100.0  100.0  100.0   72.1
+    ---------------------------- ------ ------ ------ ------ ------ ------ ------
 
 =head1 SEE ALSO
 
@@ -326,9 +324,12 @@ version described in this documentation (see L</VERSION>).
 
 =head1 LICENSE AND COPYRIGHT
 
-Copyright (c) 2011-2014 Jonas B. Nielsen, jonasbn. All rights reserved.
+Copyright (c) 2011-2015 Jonas B. Nielsen, jonasbn. All rights reserved.
 
-This program is free software; you can redistribute it and/or modify it under the
-same terms as Perl itself.
+Perl::Critic::Policy::logicLAB::RequireSheBang is released under
+the Artistic License 2.0
+
+The distribution is licensed under the Artistic License 2.0, as specified by
+the license file included in this distribution.
 
 =cut
